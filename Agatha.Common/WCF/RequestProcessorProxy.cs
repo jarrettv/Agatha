@@ -28,23 +28,23 @@ namespace Agatha.Common.WCF
 
 		public Response[] Process(params Request[] requests)
 		{
-			return Channel.Process(requests);
+			return base.Channel.Process(requests);
 		}
 
 		public void ProcessOneWayRequests(params OneWayRequest[] requests)
         {
-			Channel.ProcessOneWayRequests(requests);
+			base.Channel.ProcessOneWayRequests(requests);
         }
 
 		public void Dispose()
 		{
 			try
 			{
-				Close();
+				base.Close();
 			}
 			catch (Exception)
 			{
-				Abort();
+				base.Abort();
 			}
 		}
 	}
